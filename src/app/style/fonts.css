@@ -1,0 +1,23 @@
+@font-face {
+    font-family: Nekst;
+    font-weight: 400;
+    src: local("Nekst Regular"),
+        local("Nekst-Regular"),
+        url("../fonts/Nekst-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: Nekst;
+    font-weight: 500;
+    src: local("Nekst Medium"),
+        local("Nekst-Medium"),
+        url("../fonts/Nekst-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: Nekst;
+    font-weight: 700;
+    src: local("Nekst Bold"),
+        local("Nekst-Bold"),
+        url("../fonts/Nekst-Bold.woff2") format("woff2");
+}

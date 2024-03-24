@@ -1,0 +1,15 @@
+:root {
+	--width-page: 1440px;
+
+	/* colors */
+	--color-primary-brand: #f7752a;
+	--color-secondary-brand: #fc2f1e;
+    --color-tertiary-brand:#FCAB1E;
+    --color-text: #141414;
+    --color-gray: #61707D;
+	--color-light: #FEFEFF;
+
+	/* transition */
+	--transition-hover: 0.3s;
+	--transition-fast: 0.1s;
+}
