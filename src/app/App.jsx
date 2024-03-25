@@ -9,7 +9,7 @@ import './style/base-styles.css';
 import Header from '../widgets/Header/Header';
 import Footer from '../widgets/Footer/Footer';
 
-import Main from '../pages/Main';
+import Main from '../pages/Main/Main';
 import Catalog from '../pages/Catalog';
 import HowToOrder from '../pages/HowToOrder';
 import Contacts from '../pages/Contacts';
