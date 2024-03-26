@@ -1,0 +1,77 @@
+.popupHoverContactsRelavance {
+	position: relative;
+
+	.tel {
+		font-weight: 700;
+		line-height: 120%;
+		letter-spacing: 0.1em;
+		color: var(--color-primary-brand);
+		padding: 10px;
+	}
+}
+.popupHoverContacts {
+	position: absolute;
+	left: -50%;
+	z-index: 9;
+	box-sizing: border-box;
+
+	.contacts {
+		width: 302px;
+		background-color: var(--color-light);
+		margin-top: 35px;
+		padding: 16px 16px 48px;
+		border-radius: 24px;
+
+		.contactsRow {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+
+			&:not(:first-of-type) {
+				margin-top: 16px;
+			}
+
+			&__icon {
+				width: 48px;
+				height: 48px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			&__name {
+				font-family: Nekst;
+				text-align: start;
+				font-weight: 500;
+				font-size: 0.875rem;
+				line-height: 114%;
+				color: var(--color-gray);
+			}
+			&__text {
+				font-family: Nekst;
+				padding-top: 5px;
+				font-weight: 500;
+				line-height: 150%;
+				color: var(--color-text);
+			}
+		}
+
+		&__button {
+			margin-top: 30px;
+			display: grid;
+			justify-content: stretch;
+		}
+
+		.socialLinks {
+			display: flex;
+			align-self: center;
+			justify-content: space-between;
+			max-width: 80%;
+			margin: 48px auto 0;
+
+			.links {
+				width: 48px;
+				height: 48px;
+			}
+		}
+	}
+}

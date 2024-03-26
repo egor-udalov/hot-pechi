@@ -18,18 +18,20 @@ import Portfolio from '../pages/Portfolio';
 
 function App() {
 	return (
-		<Router>
-			<Header />
-			<Routes>
-				<Route path='/' element={<Main />} />
-				<Route path='/catalog' element={<Catalog />} />
-				<Route path='/how-to-order' element={<HowToOrder />} />
-				<Route path='/contacts' element={<Contacts />} />
-				<Route path='/about-company' element={<AboutCompany />} />
-				<Route path='/portfolio' element={<Portfolio />} />
-			</Routes>
-			<Footer />
-		</Router>
+		<div className='page-container'>
+			<Router>
+				<Header />
+				<Routes>
+					<Route path='/' element={<Main />} />
+					<Route path='/catalog' element={<Catalog />} />
+					<Route path='/how-to-order' element={<HowToOrder />} />
+					<Route path='/contacts' element={<Contacts />} />
+					<Route path='/about-company' element={<AboutCompany />} />
+					<Route path='/portfolio' element={<Portfolio />} />
+				</Routes>
+				<Footer />
+			</Router>
+		</div>
 	);
 }
 
