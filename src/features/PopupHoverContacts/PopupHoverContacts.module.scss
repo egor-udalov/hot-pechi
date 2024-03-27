@@ -2,53 +2,60 @@
 	position: relative;
 
 	.tel {
+		padding: 10px;
+
 		font-weight: 700;
 		line-height: 120%;
-		letter-spacing: 0.1em;
 		color: var(--color-primary-brand);
-		padding: 10px;
+		letter-spacing: 0.1em;
 	}
 }
+
 .popupHoverContacts {
 	position: absolute;
-	left: -50%;
 	z-index: 9;
+	left: -50%;
 	box-sizing: border-box;
 
 	.contacts {
 		width: 302px;
-		background-color: var(--color-light);
 		margin-top: 35px;
 		padding: 16px 16px 48px;
+
+		background-color: var(--color-light);
 		border-radius: 24px;
 
 		.contactsRow {
 			display: flex;
-			align-items: center;
 			gap: 16px;
+			align-items: center;
 
 			&:not(:first-of-type) {
 				margin-top: 16px;
 			}
 
 			&__icon {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
 				width: 48px;
 				height: 48px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
 			}
+
 			&__name {
 				font-family: Nekst;
-				text-align: start;
-				font-weight: 500;
 				font-size: 0.875rem;
+				font-weight: 500;
 				line-height: 114%;
 				color: var(--color-gray);
+				text-align: start;
 			}
+
 			&__text {
-				font-family: Nekst;
 				padding-top: 5px;
+
+				font-family: Nekst;
 				font-weight: 500;
 				line-height: 150%;
 				color: var(--color-text);
@@ -56,15 +63,16 @@
 		}
 
 		&__button {
-			margin-top: 30px;
 			display: grid;
 			justify-content: stretch;
+			margin-top: 30px;
 		}
 
 		.socialLinks {
 			display: flex;
 			align-self: center;
 			justify-content: space-between;
+
 			max-width: 80%;
 			margin: 48px auto 0;
 
