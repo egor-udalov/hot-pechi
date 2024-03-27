@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './Main.module.scss';
 
-import Button from '../../shared/Button/Button';
+import ModalContacts from '../../features/ModalContacts/ModalContacts';
 
 function Main() {
 	return (
@@ -85,7 +85,7 @@ function Main() {
 							требования.
 						</h2>
 					</div>
-					<Button text={'Получить консультацию'} />
+					<ModalContacts buttonText={'Получить консультацию'} />
 				</div>
 			</div>
 		</section>

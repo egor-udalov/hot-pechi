@@ -2,8 +2,8 @@ import React from 'react';
 
 import Style from './Button.module.scss';
 
-function Button({ text }) {
-	return <button className={Style.button}>{text}</button>;
+function Button({ children }) {
+	return <button className={Style.button}>{children}</button>;
 }
 
 export default Button;
