@@ -123,7 +123,6 @@
 
 			.buttonArrow {
 				transform: rotate(135deg);
-				transform: rotate(135deg);
 
 				display: inline-block;
 
@@ -144,7 +143,6 @@
 
 			.buttonArrow {
 				transform: rotate(-45deg);
-				transform: rotate(-45deg);
 
 				display: inline-block;
 
@@ -160,7 +158,8 @@
 		}
 	}
 }
-@media only screen and (max-width: 834px) {
+
+@media only screen and (width <= 834px) {
 	.header {
 		.flexWrapper {
 			.headerBurgerMenu {
@@ -172,18 +171,6 @@
 				width: 24px;
 				height: 24px;
 
-				span {
-					position: absolute;
-					top: 11px;
-					left: 0;
-
-					width: 100%;
-					height: 2px;
-
-					background-color: var(--color-primary-brand);
-
-					transition: var(--transition-fast);
-				}
 				&::before,
 				&::after {
 					content: '';
@@ -206,6 +193,20 @@
 				&::after {
 					bottom: 0;
 				}
+
+				span {
+					position: absolute;
+					top: 11px;
+					left: 0;
+
+					width: 100%;
+					height: 2px;
+
+					background-color: var(--color-primary-brand);
+
+					transition: var(--transition-fast);
+				}
+
 				&.active span {
 					transform: scale(0);
 				}
