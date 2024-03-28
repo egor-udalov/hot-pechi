@@ -39,10 +39,34 @@ function Header() {
 		divRef.current.scrollLeft += 100;
 	};
 
+	const [isActive, setIsActive] = useState(false);
+	const handleBurgerClick = () => {
+		setIsActive(!isActive);
+	};
+	useEffect(() => {
+		const body = document.querySelector('body');
+		if (body) {
+			if (isActive) {
+				body.classList.add('lock');
+			} else {
+				body.classList.remove('lock');
+			}
+		}
+	}, [isActive]);
+
 	return (
 		<header className={Style.header}>
 			<div className='content-container'>
 				<div className={Style.flexWrapper}>
+					<div
+						className={`${Style.headerBurgerMenu} ${
+							isActive ? Style.active : ''
+						}`}
+						onClick={handleBurgerClick}
+					>
+						<span></span>
+					</div>
+
 					<NavLink to='/'>
 						<div className={Style.logo}>
 							<HeaderLogoIcon className={Style.logo__icon} />
@@ -57,7 +81,11 @@ function Header() {
 							<i class={Style.buttonArrow}></i>
 						</button>
 					)}
-					<nav ref={divRef} onWheel={handleScroll} className={Style.nav}>
+					<nav
+						ref={divRef}
+						onWheel={handleScroll}
+						className={`${Style.nav} ${isActive ? Style.active : ''}`}
+					>
 						<ul>
 							<li>
 								<NavLink to='/catalog' className={Style.pageLink}>
