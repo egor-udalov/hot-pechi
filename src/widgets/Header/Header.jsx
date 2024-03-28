@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Style from './Header.module.scss';
@@ -7,6 +7,38 @@ import PopupHoverContacts from '../../features/PopupHoverContacts/PopupHoverCont
 import { ReactComponent as HeaderLogoIcon } from '../../app/svg-icons/header_logo.svg';
 
 function Header() {
+	const divRef = useRef(null);
+	const [hasHorizontalScroll, setHasHorizontalScroll] = useState(false);
+
+	useEffect(() => {
+		const checkScroll = () => {
+			const nav = divRef.current;
+			if (nav) {
+				setHasHorizontalScroll(nav.scrollWidth > nav.clientWidth);
+			}
+		};
+
+		checkScroll();
+		window.addEventListener('resize', checkScroll);
+
+		return () => window.removeEventListener('resize', checkScroll);
+	}, []);
+
+	const handleScroll = e => {
+		const nav = divRef.current;
+		if (nav) {
+			nav.scrollLeft += e.deltaY;
+		}
+	};
+
+	const scrollLeft = () => {
+		divRef.current.scrollLeft -= 100;
+	};
+
+	const scrollRight = () => {
+		divRef.current.scrollLeft += 100;
+	};
+
 	return (
 		<header className={Style.header}>
 			<div className='content-container'>
@@ -20,7 +52,12 @@ function Header() {
 						</div>
 					</NavLink>
 
-					<nav className={Style.nav}>
+					{hasHorizontalScroll && (
+						<button onClick={scrollLeft} className={Style.scrollButtonLeft}>
+							<i class={Style.buttonArrow}></i>
+						</button>
+					)}
+					<nav ref={divRef} onWheel={handleScroll} className={Style.nav}>
 						<ul>
 							<li>
 								<NavLink to='/catalog' className={Style.pageLink}>
@@ -49,6 +86,12 @@ function Header() {
 							</li>
 						</ul>
 					</nav>
+					{hasHorizontalScroll && (
+						<button onClick={scrollRight} className={Style.scrollButtonRight}>
+							<i class={Style.buttonArrow}></i>
+						</button>
+					)}
+
 					<PopupHoverContacts />
 				</div>
 			</div>
