@@ -1,0 +1,28 @@
+.productCard {
+	display: block;
+	padding-bottom: 10px;
+
+	&__img {
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
+		border-radius: 16px;
+	}
+
+	&__nameProduct {
+        margin-top: 8px;
+		font-weight: 500;
+		font-size: 0.875rem;
+		line-height: 114%;
+		text-align: center;
+	}
+
+	&__priceProduct {
+        margin-top: 4px;
+		font-weight: 700;
+		line-height: 150%;
+		letter-spacing: 0.04em;
+        color: var(--color-primary-brand);
+        text-align: center;
+	}
+}
