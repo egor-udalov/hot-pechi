@@ -2,6 +2,7 @@ import React from 'react';
 import Style from './Main.module.scss';
 
 import ModalContacts from '../../features/ModalContacts/ModalContacts';
+import ProductCard from '../../entities/ProductCard/ProductCard';
 
 function Main() {
 	// catalogSection
@@ -10,6 +11,30 @@ function Main() {
 		{ image: 'images/catalog_categories2.png', name: 'Печи' },
 		{ image: 'images/catalog_categories3.png', name: 'Банные печи' },
 		{ image: 'images/catalog_categories4.png', name: 'Камины' },
+	];
+
+	//popularProductsSection
+	const productCard = [
+		{
+			image: 'images/product_card1.png',
+			name: 'Печь-камин Бавария панорама пристенная',
+			price: '48 990 ₽',
+		},
+		{
+			image: 'images/product_card2.png',
+			name: 'Печь-камин Бавария панорама пристенная',
+			price: '48 990 ₽',
+		},
+		{
+			image: 'images/product_card3.png',
+			name: 'Печь-камин Jotul F3 IVE',
+			price: '209 000 ₽',
+		},
+		{
+			image: 'images/product_card4.png',
+			name: 'Печь-камин   Jotul F 602 ECO BP',
+			price: '101 165 ₽',
+		},
 	];
 
 	return (
@@ -102,13 +127,28 @@ function Main() {
 				<div className='content-container'>
 					<h3 className={Style.sectionTitle}>Каталог</h3>
 					<div className={Style.catalogCategories}>
-						{categoriesCard.map((item, index) => (
-							<div key={index} className={Style.categoriesCard}>
+						{categoriesCard.map((item, key) => (
+							<div key={key} className={Style.categoriesCard}>
 								<div className={Style.categoriesCard__image}>
 									<img src={item.image} alt={item.name} />
 								</div>
 								<p className={Style.categoriesCard__name}>{item.name}</p>
 							</div>
+						))}
+					</div>
+				</div>
+			</section>
+			<section className={Style.popularProductsSection}>
+				<div className='content-container'>
+					<h3 className={Style.sectionTitle}>Популярные печи</h3>
+					<div className={Style.productCardsContainer}>
+						{productCard.map((item, key) => (
+							<ProductCard
+								key={key}
+								image={item.image}
+								name={item.name}
+								price={item.price}
+							/>
 						))}
 					</div>
 				</div>

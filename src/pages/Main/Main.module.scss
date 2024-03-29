@@ -121,3 +121,13 @@
 		}
 	}
 }
+
+.popularProductsSection {
+	margin-top: 73px;
+
+	.productCardsContainer {
+		margin-top: 24px;
+		display: flex;
+		column-gap: 24px;
+	}
+}
