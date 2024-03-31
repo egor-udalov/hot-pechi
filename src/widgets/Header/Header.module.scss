@@ -9,7 +9,13 @@
 
 	color: var(--color-light);
 
-	background: rgb(97 112 125 / 50%);
+	background-color: rgb(20 20 20 / 80%);
+	border-radius: 0 0 6px 6px;
+
+	&.active {
+		background-color: rgb(20 20 20 / 100%);
+		border-radius: 0;
+	}
 
 	.flexWrapper {
 		display: flex;
@@ -43,11 +49,11 @@
 			}
 		}
 
-		.headerBurgerMenu {
+		.header__burgerNavMenu {
 			display: none;
 		}
 
-		.nav {
+		.header__nav {
 			overflow: auto hidden;
 			display: flex;
 			align-items: center;
@@ -88,11 +94,6 @@
 						white-space: nowrap;
 
 						border-radius: 28px;
-
-						&:hover {
-							background-color: var(--color-primary-brand);
-							transition: var(--transition-hover);
-						}
 					}
 				}
 			}
@@ -153,16 +154,36 @@
 			}
 		}
 
-		.headerContactsMenu {
+		.header__burgerContactsMenu {
 			display: none;
 		}
+	}
+
+	&__contacts {
+		display: none;
+	}
+}
+
+@media (hover: hover) {
+	.pageLink:hover {
+		background-color: var(--color-primary-brand);
+		transition: var(--transition-hover);
+	}
+}
+
+@media (hover: none) {
+	.pageLink:active {
+		background-color: var(--color-primary-brand);
+		transition: var(--transition-hover);
 	}
 }
 
 @media only screen and (width <= 834px) {
 	.header {
 		.flexWrapper {
-			.headerBurgerMenu {
+			.header__burgerNavMenu {
+				cursor: pointer;
+
 				position: relative;
 				z-index: 3;
 
@@ -224,9 +245,9 @@
 				}
 			}
 
-			.nav {
+			.header__nav {
 				position: fixed;
-				top: 0;
+				top: 56px;
 				right: +100%;
 
 				overflow: auto;
@@ -237,17 +258,75 @@
 				height: 100%;
 				padding-top: 100px;
 
-				background-color: #000;
+				color: var(--color-text);
+
+				background-color: var(--color-light);
 
 				transition: var(--transition-fast);
 
 				ul {
 					flex-direction: column;
 					gap: 50px;
+					align-items: start;
+
+					li {
+						.pageLink {
+							padding: 20px 25px;
+							font-size: 1.375rem;
+						}
+					}
 				}
 
 				&.active {
 					right: 0;
+				}
+			}
+
+			.header__popupHoverContacts {
+				display: none;
+			}
+
+			.header__contacts {
+				position: fixed;
+				top: 56px;
+				left: +100%;
+
+				overflow: auto;
+				display: block;
+
+				box-sizing: border-box;
+				width: 100%;
+				height: 100%;
+				padding: 100px 20px 0;
+
+				color: var(--color-text);
+
+				background-color: var(--color-light);
+
+				fill: var(--color-text);
+
+				transition: var(--transition-fast);
+
+				&.active {
+					left: 0;
+				}
+			}
+
+			.header__burgerContactsMenu {
+				cursor: pointer;
+
+				position: relative;
+				z-index: 3;
+
+				display: block;
+
+				width: 24px;
+				height: 24px;
+
+				svg {
+					width: 24px;
+					height: 24px;
+					fill: var(--color-primary-brand);
 				}
 			}
 		}

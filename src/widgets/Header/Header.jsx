@@ -3,11 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 import Style from './Header.module.scss';
 import PopupHoverContacts from '../../features/PopupHoverContacts/PopupHoverContacts';
+import ContactsInfo from '../../shared/ContactsInfo/ContactsInfo';
 
 import { ReactComponent as HeaderLogoIcon } from '../../app/svg-icons/header_logo.svg';
+import { ReactComponent as PhoneIcon } from '../../app/svg-icons/phone_icon.svg';
 
 function Header() {
 	const divRef = useRef(null);
+
 	const [hasHorizontalScroll, setHasHorizontalScroll] = useState(false);
 
 	useEffect(() => {
@@ -34,39 +37,52 @@ function Header() {
 	const scrollLeft = () => {
 		divRef.current.scrollLeft -= 100;
 	};
-
 	const scrollRight = () => {
 		divRef.current.scrollLeft += 100;
 	};
 
-	const [isActive, setIsActive] = useState(false);
-	const handleBurgerClick = () => {
-		setIsActive(!isActive);
+	//
+
+	const [isActiveNavBurgerMenu, setIsActiveNavBurgerMenu] = useState(false);
+	const handleNavBurgerClick = () => {
+		setIsActiveNavBurgerMenu(!isActiveNavBurgerMenu);
+		setIsActiveContactsBurgerMenu(false);
 	};
+
+	const [isActiveContactsBurgerMenu, setIsActiveContactsBurgerMenu] =
+		useState(false);
+	const handleContactsBurgerClick = () => {
+		setIsActiveContactsBurgerMenu(!isActiveContactsBurgerMenu);
+		setIsActiveNavBurgerMenu(false);
+	};
+
 	useEffect(() => {
 		const body = document.querySelector('body');
 		if (body) {
-			if (isActive) {
+			if (isActiveNavBurgerMenu || isActiveContactsBurgerMenu) {
 				body.classList.add('lock');
 			} else {
 				body.classList.remove('lock');
 			}
 		}
-	}, [isActive]);
+	}, [isActiveNavBurgerMenu, isActiveContactsBurgerMenu]);
 
 	return (
-		<header className={Style.header}>
+		<header
+			className={`${Style.header} ${
+				isActiveNavBurgerMenu || isActiveContactsBurgerMenu ? Style.active : ''
+			}`}
+		>
 			<div className='content-container'>
 				<div className={Style.flexWrapper}>
 					<div
-						className={`${Style.headerBurgerMenu} ${
-							isActive ? Style.active : ''
+						className={`${Style.header__burgerNavMenu} ${
+							isActiveNavBurgerMenu ? Style.active : ''
 						}`}
-						onClick={handleBurgerClick}
+						onClick={handleNavBurgerClick}
 					>
 						<span></span>
 					</div>
-
 					<NavLink to='/'>
 						<div className={Style.logo}>
 							<HeaderLogoIcon className={Style.logo__icon} />
@@ -75,7 +91,6 @@ function Header() {
 							</p>
 						</div>
 					</NavLink>
-
 					{hasHorizontalScroll && (
 						<button onClick={scrollLeft} className={Style.scrollButtonLeft}>
 							<i class={Style.buttonArrow}></i>
@@ -84,7 +99,9 @@ function Header() {
 					<nav
 						ref={divRef}
 						onWheel={handleScroll}
-						className={`${Style.nav} ${isActive ? Style.active : ''}`}
+						className={`${Style.header__nav} ${
+							isActiveNavBurgerMenu ? Style.active : ''
+						}`}
 					>
 						<ul>
 							<li>
@@ -119,8 +136,24 @@ function Header() {
 							<i class={Style.buttonArrow}></i>
 						</button>
 					)}
-
-					<PopupHoverContacts />
+					<div className={Style.header__popupHoverContacts}>
+						<PopupHoverContacts />
+					</div>
+					<div
+						className={`${Style.header__burgerContactsMenu} ${
+							isActiveContactsBurgerMenu ? Style.active : ''
+						}`}
+						onClick={handleContactsBurgerClick}
+					>
+						<PhoneIcon />
+					</div>
+					<div
+						className={`${Style.header__contacts} ${
+							isActiveContactsBurgerMenu ? Style.active : ''
+						}`}
+					>
+						<ContactsInfo />
+					</div>
 				</div>
 			</div>
 		</header>
