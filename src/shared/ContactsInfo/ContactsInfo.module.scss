@@ -1,0 +1,67 @@
+.contactsInfo {
+	.contactsRow {
+		display: flex;
+		gap: 16px;
+		align-items: center;
+
+		&:not(:first-of-type) {
+			margin-top: 16px;
+		}
+
+		&__icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 48px;
+			height: 48px;
+
+			background: rgb(254 254 255 / 10%);
+			border-radius: 24px;
+		}
+
+		&__name {
+			font-family: Nekst;
+			font-size: 0.875rem;
+			font-weight: 500;
+			line-height: 114%;
+			color: var(--color-gray);
+			text-align: start;
+		}
+
+		&__text {
+			padding-top: 5px;
+			font-family: Nekst;
+			font-weight: 500;
+			line-height: 150%;
+		}
+	}
+
+	&__button {
+		width: 100%;
+		margin-top: 30px;
+	}
+
+	&__linksDescription {
+		margin-top: 32px;
+
+		font-family: Nekst;
+		font-size: 0.875rem;
+		font-weight: 500;
+		line-height: 114%;
+		color: var(--color-gray);
+		text-align: center;
+	}
+
+	.socialLinks {
+		display: flex;
+		align-self: center;
+		justify-content: space-between;
+		margin: 16px auto 0;
+
+		.links {
+			width: 48px;
+			height: 48px;
+		}
+	}
+}
