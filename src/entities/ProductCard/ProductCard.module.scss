@@ -10,7 +10,7 @@
 	}
 
 	&__nameProduct {
-        margin-top: 8px;
+		margin-top: 8px;
 
 		font-size: 0.875rem;
 		font-weight: 500;
@@ -19,12 +19,30 @@
 	}
 
 	&__priceProduct {
-        margin-top: 4px;
+		margin-top: 4px;
 
 		font-weight: 700;
 		line-height: 150%;
-        color: var(--color-primary-brand);
-        text-align: center;
+		color: var(--color-primary-brand);
+		text-align: center;
 		letter-spacing: 0.04em;
+	}
+}
+
+@media (max-width: 834px) {
+	.productCard {
+		&__img {
+			width: 219px;
+			height: 219px;
+		}
+	}
+}
+
+@media (max-width: 375px) {
+	.productCard {
+		&__img {
+			width: 265px;
+			height: 265px;
+		}
 	}
 }

@@ -11,6 +11,10 @@ function Main() {
 		{ image: 'images/catalog_categories2.png', name: 'Печи' },
 		{ image: 'images/catalog_categories3.png', name: 'Банные печи' },
 		{ image: 'images/catalog_categories4.png', name: 'Камины' },
+		{ image: 'images/catalog_categories5.png', name: 'Печи-камины' },
+		{ image: 'images/catalog_categories6.png', name: 'Печи' },
+		{ image: 'images/catalog_categories7.png', name: 'Банные печи' },
+		{ image: 'images/catalog_categories8.png', name: 'Камины' },
 	];
 
 	//popularProductsSection
@@ -39,6 +43,7 @@ function Main() {
 
 	return (
 		<main>
+
 			<section className={Style.heroSection}>
 				<picture>
 					{/* avif */}
@@ -123,6 +128,7 @@ function Main() {
 					</div>
 				</div>
 			</section>
+
 			<section className={Style.catalogSection}>
 				<div className='content-container'>
 					<h3 className={Style.sectionTitle}>Каталог</h3>
@@ -138,6 +144,7 @@ function Main() {
 					</div>
 				</div>
 			</section>
+
 			<section className={Style.popularProductsSection}>
 				<div className='content-container'>
 					<h3 className={Style.sectionTitle}>Популярные печи</h3>
@@ -153,6 +160,7 @@ function Main() {
 					</div>
 				</div>
 			</section>
+			
 		</main>
 	);
 }
