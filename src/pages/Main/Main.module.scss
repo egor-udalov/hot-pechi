@@ -150,9 +150,12 @@
 		margin-top: 48px;
 
 		.catalogCategories {
+			overflow-x: auto;
 			flex-wrap: nowrap;
 			gap: 0 16px;
 			justify-content: start;
+
+			padding-bottom: 20px;
 
 			.categoriesCard {
 				&__image {
@@ -183,7 +186,7 @@
 
 @media (max-width: 375px) {
 	.popularProductsSection {
-		margin-top: 48px;
+		margin-top: 28px;
 
 		.productCardsContainer {
 			column-gap: 16px;
